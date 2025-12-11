@@ -100,10 +100,10 @@
             <h3 class="text-xl font-semibold mb-4 text-gray-900">About</h3>
             <div class="max-w-3xl">
                 <div>
-                    <p class="text-gray-800">Affiliation: Waseda University, Faculty of Science and Engineering
+                    <p class="text-gray-800"><b>Affiliation:</b> Waseda University, Faculty of Science and Engineering
                         (Research Associate) / Ph.D. Student</p>
-                    <p class="text-gray-800 mt-2">Research Area: Multi-Agent Path Finding (MAPF)</p>
-                    <p class="text-gray-800 mt-2">Education: Master's Degree, Waseda University</p>
+                    <p class="text-gray-800 mt-2"><b>Research Area:</b> Multi-Agent Path Finding (MAPF)</p>
+                    <p class="text-gray-800 mt-2"><b>Education:</b> Master's Degree, Waseda University (FY2024)</p>
                 </div>
             </div>
         </section>
@@ -152,7 +152,7 @@
         </section>
 
         <footer class="text-center text-gray-500 py-6">
-            © 2025 SunnyWist — Portfolio (This site was created by ChatGPT)
+            © 2025 SunnyWist — Portfolio (This site was created using ChatGPT.)
         </footer>
     </main>
 
@@ -166,8 +166,12 @@
         enLabel.classList.add('active');
 
         langToggle.addEventListener('change', () => {
+            // Add fade-out animation before navigation
+            document.body.classList.add('page-exit');
             // Navigate to Japanese version
-            window.location.href = '../';
+            setTimeout(() => {
+                window.location.href = 'https://sunnywist.com/';
+            }, 200);
         });
     </script>
 </body>
