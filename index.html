@@ -4,22 +4,139 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>藤澤陽祐 | Portfolio</title>
+    <title>Yosuke Fujisawa | Portfolio</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <style>
+        .lang-switch {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 48px;
+            height: 24px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #cbd5e1;
+            transition: .3s;
+            border-radius: 24px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: .3s;
+            border-radius: 50%;
+        }
+
+        input:checked+.slider {
+            background-color: #3b82f6;
+        }
+
+        input:checked+.slider:before {
+            transform: translateX(24px);
+        }
+
+        .lang-label {
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: #6b7280;
+            transition: color 0.3s;
+        }
+
+        .lang-label.active {
+            color: #1f2937;
+            font-weight: 600;
+        }
+
+        /* Language switch animations */
+        .lang-ja,
+        .lang-en {
+            animation-duration: 0.5s;
+            animation-fill-mode: both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeOutDown {
+            from {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            to {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+        }
+
+        .lang-ja.fade-in,
+        .lang-en.fade-in {
+            animation-name: fadeInUp;
+        }
+
+        .lang-ja.fade-out,
+        .lang-en.fade-out {
+            animation-name: fadeOutDown;
+        }
+    </style>
 </head>
 
 <body class="bg-gray-50 text-gray-800 font-sans">
     <!-- Header -->
-    <header class="max-w-5xl mx-auto p-3 md:p-6 mb-0 flex flex-col md:flex-row md:items-center md:justify-between gap-2">
+    <header
+        class="max-w-5xl mx-auto p-3 md:p-6 mb-0 flex flex-col md:flex-row md:items-center md:justify-between gap-2">
         <div>
             <h1 class="text-3xl font-extrabold tracking-tight text-gray-900 mb-1 md:mb-2">Yosuke Fujisawa</h1>
-            <p class="text-sm text-gray-600">Research Associate / Ph.D Student<br class="md:hidden" /> — Multi-Agent Systems</p>
+            <p class="text-sm text-gray-600">Research Associate / Ph.D Student<br class="md:hidden" /> — Multi-Agent
+                Systems</p>
         </div>
-        <nav class="flex flex-row flex-wrap gap-4 md:gap-4 text-xs md:text-sm">
-            <a href="#about" class="hover:underline text-gray-700">About</a>
-            <a href="#pubs" class="hover:underline text-gray-700">Publications</a>
-            <a href="#tools" class="hover:underline text-gray-700">Tools</a>
-            <a href="#contact" class="hover:underline text-gray-700">Contact</a>
+        <nav class="flex flex-row flex-wrap gap-4 md:gap-4 text-xs md:text-sm items-center">
+            <a href="#about" class="hover:underline text-gray-700" data-ja="About" data-en="About">About</a>
+            <a href="#pubs" class="hover:underline text-gray-700" data-ja="Publications"
+                data-en="Publications">Publications</a>
+            <a href="#tools" class="hover:underline text-gray-700" data-ja="Tools" data-en="Tools">Tools</a>
+            <a href="#contact" class="hover:underline text-gray-700" data-ja="Contact" data-en="Contact">Contact</a>
+            <div class="lang-switch">
+                <span id="jaLabel" class="lang-label active">JA</span>
+                <label class="switch">
+                    <input type="checkbox" id="langToggle">
+                    <span class="slider"></span>
+                </label>
+                <span id="enLabel" class="lang-label">EN</span>
+            </div>
         </nav>
     </header>
 
@@ -36,9 +153,12 @@
                 <h2 class="text-2xl font-bold text-gray-900">藤澤 陽祐 - Yosuke Fujisawa</h2>
                 <h3 class="text-2xl font-bold text-gray-500">> SunnyWist</h3>
                 <p class="mt-3 text-gray-700 leading-relaxed">
-                    早稲田大学 理工学術院に所属する助手・博士後期課程学生（2025年度現在）。<br>
-                    マルチエージェント経路計画（MAPF）や深層強化学習など、
-                    マルチエージェントシステムを中心に研究しています。
+                    <span class="lang-ja">早稲田大学 理工学術院に所属する助手・博士後期課程学生(2025年度現在)。<br>
+                        マルチエージェント経路計画(MAPF)や深層強化学習など、
+                        マルチエージェントシステムを中心に研究しています。</span>
+                    <span class="lang-en hidden">Research Associate and Ph.D. student at Waseda University, Faculty of
+                        Science and Engineering (as of 2025).<br>
+                        Research focuses on Multi-Agent Systems, including <b>MAPF</b> and DRL.</span>
                 </p>
                 <div class="mt-6 flex flex-wrap gap-3">
                     <a href="https://scholar.google.co.jp/citations?user=XZxB3nAAAAAJ"
@@ -55,15 +175,16 @@
         <!-- About Section -->
         <section id="about" class="bg-white rounded-2xl p-6 shadow border border-gray-200">
             <h3 class="text-xl font-semibold mb-4 text-gray-900">About</h3>
-            <div class="grid md:grid-cols-2 gap-6">
+            <div class="max-w-3xl">
                 <div>
-                    <p class="text-gray-800">所属: 早稲田大学 理工学術院（助手）・博士後期課程学生</p>
-                    <p class="text-gray-800 mt-2">専門: マルチエージェント経路計画(MAPF)</p>
-                    <p class="text-gray-800 mt-2">学歴: 早稲田大学 修士卒</p>
+                    <p class="text-gray-800 lang-ja">所属: 早稲田大学 理工学術院(助手)・博士後期課程学生</p>
+                    <p class="text-gray-800 lang-en hidden">Affiliation: Waseda University, Faculty of
+                        Science and Engineering (Research Associate) / Ph.D. Student</p>
+                    <p class="text-gray-800 mt-2 lang-ja">専門: マルチエージェント経路計画(MAPF)</p>
+                    <p class="text-gray-800 mt-2 lang-en hidden">Expertise: Multi-Agent Path Finding (MAPF)</p>
+                    <p class="text-gray-800 mt-2 lang-ja">学歴: 早稲田大学 修士卒</p>
+                    <p class="text-gray-800 mt-2 lang-en hidden">Education: Master's Degree, Waseda University</p>
                 </div>
-                <!-- <div>
-                    <p class="text-gray-700">研究テーマの動機や取り組み方、使用している主要ツール（Python, PyTorch, ROSなど）を記載するスペースです。</p>
-                </div> -->
             </div>
         </section>
 
@@ -71,14 +192,19 @@
         <section id="pubs" class="bg-white rounded-2xl p-6 shadow border border-gray-200">
             <h3 class="text-xl font-semibold mb-4 text-gray-700">Publications</h3>
             <ul class="space-y-4">
-                <h3 class="font-semibold mb-4 text-gray-900">> Conference Papers（学会発表）</h3>
+                <h3 class="font-semibold mb-4 text-gray-900">
+                    <span class="lang-ja">> Conference Papers(学会発表)</span>
+                    <span class="lang-en hidden">> Conference Papers</span>
+                </h3>
                 <li class="bg-gray-100 p-4 rounded-lg">
                     <h4 class="font-semibold text-gray-900"><a
                             href="https://doi.org/10.1007/978-3-032-07638-0_8"><u>Prioritized Path Planning for
                                 Multi-agent Pickup and Delivery with Multi-item Packing Problem </u></a></h4>
                     <span class="text-gray-600"><b>Yosuke Fujisawa</b>, Yusaku Wakasugi, Kazuya Nakazawa, Ryo
                         Matsubara, Toshiharu Sugawara</span>&nbsp;- PAAMS 2025
-                    <p class="mt-2 text-gray-700">物品の積まれた棚を搬送するMAPD-MPの経路改善に関する研究。</p>
+                    <p class="mt-2 text-gray-700 lang-ja">物品の積まれた棚を搬送するMAPD-MPの経路改善に関する研究。</p>
+                    <p class="mt-2 text-gray-700 lang-en hidden">Research on path improvement for MAPD-MP with shelf
+                        transportation containing multiple items.</p>
                 </li>
                 <li class="bg-gray-100 p-4 rounded-lg">
                     <h4 class="font-semibold text-gray-900"><a
@@ -87,7 +213,9 @@
                     </h4>
                     <span class="text-gray-600"><b>Yosuke Fujisawa</b>, Daiki Shimada, Yuki Miyashita, Toshiharu
                         Sugawara</span>&nbsp;- WI-IAT 2024
-                    <p class="mt-2 text-gray-700">深層強化学習を利用したLifelong MAPF解決手法に関する研究。</p>
+                    <p class="mt-2 text-gray-700 lang-ja">深層強化学習を利用したLifelong MAPF解決手法に関する研究。</p>
+                    <p class="mt-2 text-gray-700 lang-en hidden">Research on Lifelong MAPF solver using deep
+                        reinforcement learning.</p>
                 </li>
             </ul>
         </section>
@@ -97,7 +225,10 @@
             <h3 class="text-xl font-semibold mb-4 text-gray-900">Tools</h3>
             <ul class="list-disc list-inside space-y-2 text-gray-700">
                 <li><b>Under Construction</b>: ...
-                    <a href="#" class="text-blue-600 hover:underline">GitHub リポジトリ</a>
+                    <a href="#" class="text-blue-600 hover:underline">
+                        <span class="lang-ja">GitHub リポジトリ</span>
+                        <span class="lang-en hidden">GitHub Repository</span>
+                    </a>
                 </li>
             </ul>
         </section>
@@ -105,12 +236,88 @@
         <!-- Contact Section -->
         <section id="contact" class="bg-white rounded-2xl p-6 shadow border border-gray-200">
             <h3 class="text-xl font-semibold mb-4 text-gray-900">Contact</h3>
-            <p class="text-gray-700">E-mail: (Including my paper)</p>
+            <p class="text-gray-700 lang-ja">E-mail: (論文を参照)</p>
+            <p class="text-gray-700 lang-en hidden">E-mail: (See my papers)</p>
         </section>
 
-        <footer class="text-center text-gray-500 py-6">© 2025 SunnyWist — Portfolio (This is created by ChatGPT)
+        <footer class="text-center text-gray-500 py-6">
+            <span class="lang-ja">© 2025 SunnyWist — Portfolio (このサイトはChatGPTにより作成されました)</span>
+            <span class="lang-en hidden">© 2025 SunnyWist — Portfolio (This site was created by ChatGPT)</span>
         </footer>
     </main>
+
+    <script>
+        const langToggle = document.getElementById('langToggle');
+        const jaLabel = document.getElementById('jaLabel');
+        const enLabel = document.getElementById('enLabel');
+        let currentLang = 'ja';
+
+        const savedLang = localStorage.getItem('preferredLang');
+        if (savedLang) {
+            currentLang = savedLang;
+        }
+
+        // Initialize display
+        if (currentLang === 'en') {
+            langToggle.checked = true;
+            updateLabels();
+            // Initialize without animation on page load
+            const jaElements = document.querySelectorAll('.lang-ja');
+            const enElements = document.querySelectorAll('.lang-en');
+            jaElements.forEach(el => el.classList.add('hidden'));
+            enElements.forEach(el => el.classList.remove('hidden'));
+        }
+
+        langToggle.addEventListener('change', () => {
+            toggleLanguage();
+            currentLang = currentLang === 'ja' ? 'en' : 'ja';
+            updateLabels();
+            localStorage.setItem('preferredLang', currentLang);
+        });
+
+        function toggleLanguage() {
+            const jaElements = document.querySelectorAll('.lang-ja');
+            const enElements = document.querySelectorAll('.lang-en');
+
+            // Determine which elements to hide and show
+            const elementsToHide = currentLang === 'ja' ? jaElements : enElements;
+            const elementsToShow = currentLang === 'ja' ? enElements : jaElements;
+
+            // Add fade-out animation to hiding elements
+            elementsToHide.forEach(el => {
+                if (!el.classList.contains('hidden')) {
+                    el.classList.remove('fade-in');
+                    el.classList.add('fade-out');
+                }
+            });
+
+            // Wait for fade-out animation to complete
+            setTimeout(() => {
+                // Hide elements after fade-out
+                elementsToHide.forEach(el => {
+                    el.classList.add('hidden');
+                    el.classList.remove('fade-out');
+                });
+
+                // Show and animate new elements
+                elementsToShow.forEach(el => {
+                    el.classList.remove('hidden');
+                    el.classList.remove('fade-out');
+                    el.classList.add('fade-in');
+                });
+            }, 250); // Half of animation duration for smoother transition
+        }
+
+        function updateLabels() {
+            if (currentLang === 'ja') {
+                jaLabel.classList.add('active');
+                enLabel.classList.remove('active');
+            } else {
+                jaLabel.classList.remove('active');
+                enLabel.classList.add('active');
+            }
+        }
+    </script>
 </body>
 
 </html>
