@@ -3,12 +3,11 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0; url=../">
+    <meta http-equiv="refresh" content="0; url=../?lang=en">
     <title>Redirecting...</title>
     <script>
-        // Set language preference and redirect
-        localStorage.setItem('preferredLang', 'en');
-        window.location.href = '../';
+        // Redirect with query parameter to specify language
+        window.location.href = '../?lang=en';
     </script>
 </head>
 

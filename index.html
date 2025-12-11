@@ -252,60 +252,51 @@
         const enLabel = document.getElementById('enLabel');
         let currentLang = 'ja';
 
-        const savedLang = localStorage.getItem('preferredLang');
-        if (savedLang) {
-            currentLang = savedLang;
+        // Prefer URL query (?lang=ja|en), fallback to default 'ja'
+        const params = new URLSearchParams(window.location.search);
+        const queryLang = params.get('lang');
+        if (queryLang === 'en' || queryLang === 'ja') {
+            currentLang = queryLang;
         }
 
-        // Initialize display
-        if (currentLang === 'en') {
-            langToggle.checked = true;
-            updateLabels();
-            // Initialize without animation on page load
-            const jaElements = document.querySelectorAll('.lang-ja');
-            const enElements = document.querySelectorAll('.lang-en');
-            jaElements.forEach(el => el.classList.add('hidden'));
-            enElements.forEach(el => el.classList.remove('hidden'));
-        }
+        // Initialize display without animation
+        applyLanguage(currentLang);
 
         langToggle.addEventListener('change', () => {
-            toggleLanguage();
-            currentLang = currentLang === 'ja' ? 'en' : 'ja';
-            updateLabels();
-            localStorage.setItem('preferredLang', currentLang);
+            const targetLang = currentLang === 'ja' ? 'en' : 'ja';
+            const nextUrl = new URL(window.location.href);
+            nextUrl.searchParams.set('lang', targetLang);
+            window.location.href = nextUrl.toString();
         });
 
-        function toggleLanguage() {
+        function applyLanguage(lang) {
+            currentLang = lang;
             const jaElements = document.querySelectorAll('.lang-ja');
             const enElements = document.querySelectorAll('.lang-en');
 
-            // Determine which elements to hide and show
-            const elementsToHide = currentLang === 'ja' ? jaElements : enElements;
-            const elementsToShow = currentLang === 'ja' ? enElements : jaElements;
-
-            // Add fade-out animation to hiding elements
-            elementsToHide.forEach(el => {
-                if (!el.classList.contains('hidden')) {
-                    el.classList.remove('fade-in');
-                    el.classList.add('fade-out');
-                }
-            });
-
-            // Wait for fade-out animation to complete
-            setTimeout(() => {
-                // Hide elements after fade-out
-                elementsToHide.forEach(el => {
+            if (lang === 'en') {
+                langToggle.checked = true;
+                jaElements.forEach(el => {
                     el.classList.add('hidden');
-                    el.classList.remove('fade-out');
+                    el.classList.remove('fade-in', 'fade-out');
                 });
-
-                // Show and animate new elements
-                elementsToShow.forEach(el => {
-                    el.classList.remove('hidden');
-                    el.classList.remove('fade-out');
+                enElements.forEach(el => {
+                    el.classList.remove('hidden', 'fade-out');
                     el.classList.add('fade-in');
                 });
-            }, 250); // Half of animation duration for smoother transition
+            } else {
+                langToggle.checked = false;
+                enElements.forEach(el => {
+                    el.classList.add('hidden');
+                    el.classList.remove('fade-in', 'fade-out');
+                });
+                jaElements.forEach(el => {
+                    el.classList.remove('hidden', 'fade-out');
+                    el.classList.add('fade-in');
+                });
+            }
+
+            updateLabels();
         }
 
         function updateLabels() {
