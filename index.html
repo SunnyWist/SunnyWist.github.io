@@ -78,7 +78,7 @@
                 <h2 class="text-2xl font-bold text-gray-900">藤澤 陽祐 - Yosuke Fujisawa</h2>
                 <h3 class="text-2xl font-bold text-gray-500">> SunnyWist</h3>
                 <p class="mt-3 text-gray-700 leading-relaxed">
-                    早稲田大学 理工学術院に所属する助手・博士後期課程学生 (2025年度現在) 。<br>
+                    <a href="https://www.waseda.jp/top/"><u>早稲田大学</u></a> 理工学術院に所属する助手・博士後期課程学生 (2026年度現在) 。<br>
                     <a href="https://www.sugawara.org/"><u>マルチエージェントシステム研究室 (菅原研究室) </u></a>に所属し、マルチエージェント経路計画(MAPF)や深層強化学習など、
                     マルチエージェントシステムを中心に研究しています。
                 </p>
@@ -109,58 +109,119 @@
         <!-- Research Section -->
         <section id="pubs" class="bg-white rounded-2xl p-6 shadow border border-gray-200">
             <h3 class="text-xl font-semibold mb-4 text-gray-700">Publications</h3>
-            <ul class="space-y-4">
-                <h3 class="font-semibold mb-4 text-gray-900">> 論文誌・国際会議 (査読付き、筆頭著者) </h3>
+            <div class="space-y-4">
+                <details open class="rounded-lg border border-gray-200 bg-white">
+                    <summary class="cursor-pointer select-none font-semibold text-gray-900 px-4 py-3">論文誌・国際会議 (査読付き、筆頭著者)</summary>
+                    <ul class="space-y-4 px-3 pb-3">
+                        <li class="bg-gray-100 p-4 rounded-lg">
+                            <h4 class="font-semibold text-gray-900"><a href="#"><u>
+                                Dynamic Shelf Arrangement and Task Assignment with Stable Matching for Multi-Agent Pickup and Delivery with Multi-Item Packing Problem
+                            </u></a></h4>
+                            <span class="text-gray-600">
+                                <u>Yosuke Fujisawa</u>, Yusaku Wakasugi, Kazuya Nakazawa, Ryo Matsubara, Toshiharu Sugawara
+                            </span><br>
+                            <span class="text-gray-900">
+                                International Conference on Automated Planning and Scheduling (<b>ICAPS</b>) 2026. (accepted)
+                            </span>
+                            <p class="mt-2 text-gray-900">
+                                MAPD-MPにおけるロングテールの影響を考慮した動的棚配置とタスク割当に関する研究。
+                            </p>
+                        </li>
+                        <li class="bg-gray-100 p-4 rounded-lg">
+                            <h4 class="font-semibold text-gray-900"><a href="https://doi.org/10.1007/978-3-032-07638-0_8"><u>
+                                Prioritized Path Planning for Multi-agent Pickup and Delivery with Multi-item Packing Problem 
+                            </u></a></h4>
+                            <span class="text-gray-600">
+                                <u>Yosuke Fujisawa</u>, Yusaku Wakasugi, Kazuya Nakazawa, Ryo Matsubara, Toshiharu Sugawara
+                            </span><br>
+                            <span class="text-gray-900">
+                                International Conference on Practical applications of Agents and Multi-Agent Systems (<b>PAAMS</b>) 2025.
+                            </span>
+                            <p class="mt-2 text-gray-900">
+                                物品の積まれた棚を搬送するMAPD-MPの経路改善に関する研究。
+                            </p>
+                        </li>
+                        <li class="bg-gray-100 p-4 rounded-lg">
+                            <h4 class="font-semibold text-gray-900"><a href="https://doi.org/10.1109/wi-iat62293.2024.00042"><u>
+                                Deep Reinforcement Learning with Local Communications for Continuous Pathfinding Problems in Multi-Agent Systems
+                            </u></a></h4>
+                            <span class="text-gray-600">
+                                <u>Yosuke Fujisawa</u>, Daiki Shimada, Yuki Miyashita, Toshiharu Sugawara
+                            </span><br>
+                            <span class="text-gray-900">
+                                International Conference on Web Intelligence and Intelligent Agent Technology (<b>WI-IAT</b>) 2024.
+                            </span>
+                            <p class="mt-2 text-gray-900">
+                                深層強化学習を利用したLifelong MAPF解決手法に関する研究。
+                            </p>
+                        </li>
+                    </ul>
+                </details>
+
+                <details class="rounded-lg border border-gray-200 bg-white">
+                    <summary class="cursor-pointer select-none font-semibold text-gray-900 px-4 py-3">論文誌・国際会議 (査読付き、共著者)</summary>
+                    <ul class="space-y-4 px-3 pb-3">
+                        <li class="bg-gray-100 p-4 rounded-lg">
+                            <h4 class="font-semibold text-gray-900"><a href="https://doi.org/10.1109/ijcnn64981.2025.11229006"><u>
+                                MARL-HE: An Improved Multi-agent Reinforcement Learning-based Pathfinding Method for Fire Evacuation Guidance 
+                            </u></a></h4>
+                            <span class="text-gray-600">
+                                Ke Zhang, Dandan Zhu, Xiaoning Zhao, Sun Cherry, <u>Yosuke Fujisawa</u>, Toshiharu Sugawara
+                            </span><br>
+                            <span class="text-gray-900">
+                                International Joint Conference on Neural Networks (<b>IJCNN</b>) 2025.
+                            </span>
+                        </li>
+                    </ul>
+                </details>
+
+                <details class="rounded-lg border border-gray-200 bg-white">
+                    <summary class="cursor-pointer select-none font-semibold text-gray-900 px-4 py-3">国内大会・研究会 (査読なし)</summary>
+                    <ul class="space-y-4 px-3 pb-3">
+                        <li class="bg-gray-100 p-4 rounded-lg">
+                            <h4 class="font-semibold text-gray-900"><a href="https://jglobal.jst.go.jp/detail?JGLOBAL_ID=202402268867774476"><u>
+                                分散強化学習によるLifelong MAPF解決手法における近隣エージェントとの情報共有の改善 
+                            </u></a></h4>
+                            <span class="text-gray-600">
+                                <u>藤澤陽祐</u>, 菅原俊治
+                            </span><br>
+                            <span class="text-gray-900">
+                                2024 Winter Symposium on Multi Agent Systems for Harmonization (<b>SMASH 2024 Winter</b>).
+                            </span>
+                        </li>
+                    </ul>
+                </details>
+            </div>
+        </section>
+
+        <!-- Awards Section -->
+        <section id="awards" class="bg-white rounded-2xl p-6 shadow border border-gray-200">
+            <h3 class="text-xl font-semibold mb-4 text-gray-900">受賞歴</h3>
+            <ul class="space-y-3 text-gray-700">
                 <li class="bg-gray-100 p-4 rounded-lg">
-                    <h4 class="font-semibold text-gray-900"><a href="#"><u>
-                        Dynamic Shelf Arrangement and Task Assignment with Stable Matching for Multi-Agent Pickup and Delivery with Multi-Item Packing Problem
-                    </u></a> (accepted)</h4>
-                    <span class="text-gray-600">
-                        <u>Yosuke Fujisawa</u>, Yusaku Wakasugi, Kazuya Nakazawa, Ryo Matsubara, Toshiharu Sugawara
-                    </span>&nbsp;- ICAPS 2026
-                    <p class="mt-2 text-gray-700">
-                        MAPD-MPにおけるロングテールの影響を考慮した動的棚配置とタスク割当に関する研究。
-                    </p>
-                </li>
-                <li class="bg-gray-100 p-4 rounded-lg">
-                    <h4 class="font-semibold text-gray-900"><a href="https://doi.org/10.1007/978-3-032-07638-0_8"><u>
-                        Prioritized Path Planning for Multi-agent Pickup and Delivery with Multi-item Packing Problem 
-                    </u></a></h4>
-                    <span class="text-gray-600">
-                        <u>Yosuke Fujisawa</u>, Yusaku Wakasugi, Kazuya Nakazawa, Ryo Matsubara, Toshiharu Sugawara
-                    </span>&nbsp;- PAAMS 2025
-                    <p class="mt-2 text-gray-700">
-                        物品の積まれた棚を搬送するMAPD-MPの経路改善に関する研究。
-                    </p>
-                </li>
-                <li class="bg-gray-100 p-4 rounded-lg">
-                    <h4 class="font-semibold text-gray-900"><a href="https://doi.org/10.1109/wi-iat62293.2024.00042"><u>
-                        Deep Reinforcement Learning with Local Communications for Continuous Pathfinding Problems in Multi-Agent Systems
-                    </u></a></h4>
+                    <h4 class="font-semibold text-gray-900">WI-IAT 2024 Best Student Paper Runner-up</h4>
+                    <p class="mt-1 text-gray-700">Deep Reinforcement Learning with Local Communications for Continuous Pathfinding Problems in Multi-Agent Systems</p>
                     <span class="text-gray-600">
                         <u>Yosuke Fujisawa</u>, Daiki Shimada, Yuki Miyashita, Toshiharu Sugawara
-                    </span>&nbsp;- WI-IAT 2024
-                    <p class="mt-2 text-gray-700">
-                        深層強化学習を利用したLifelong MAPF解決手法に関する研究。
+                    </span><br>
+                    <p class="mt-2 text-gray-900">
+                        査読付き国際会議「International Conference on Web Intelligence and Intelligent Agent Technology (WI-IAT) 2024」における、<b>学生論文賞の次点受賞</b>。
                     </p>
                 </li>
-                <h3 class="font-semibold mb-4 text-gray-900">> 論文誌・国際会議 (査読付き、共著者) </h3>
                 <li class="bg-gray-100 p-4 rounded-lg">
-                    <h4 class="font-semibold text-gray-900"><a href="https://doi.org/10.1109/ijcnn64981.2025.11229006"><u>
-                        MARL-HE: An Improved Multi-agent Reinforcement Learning-based Pathfinding Method for Fire Evacuation Guidance 
-                    </u></a></h4>
+                    <h4 class="font-semibold text-gray-900">早稲田大学基幹理工学部長賞 優秀賞</h4>
                     <span class="text-gray-600">
-                        Ke Zhang, Dandan Zhu, Xiaoning Zhao, Sun Cherry, <u>Yosuke Fujisawa</u>, Toshiharu Sugawara
-                    </span>&nbsp;- IJCNN 2025
+                        <u>藤澤陽祐</u>
+                    </span><br>
+                    <p class="mt-2 text-gray-900">
+                        早稲田大学 基幹理工学部 情報理工学科において、2024年度卒業生の<b>学業成績優秀者</b> (GPAで上位4人) に授与される賞を受賞。
+                    </p>
                 </li>
-                <h3 class="font-semibold mb-4 text-gray-900">> 国内大会・研究会 (査読なし) </h3>
                 <li class="bg-gray-100 p-4 rounded-lg">
-                    <h4 class="font-semibold text-gray-900"><a href="https://jglobal.jst.go.jp/detail?JGLOBAL_ID=202402268867774476"><u>
-                        分散強化学習によるLifelong MAPF解決手法における近隣エージェントとの情報共有の改善 
-                    </u></a></h4>
+                    <h4 class="font-semibold text-gray-900">早稲田大学基幹理工学研究科 情報理工・情報通信専攻賞</h4>
                     <span class="text-gray-600">
-                        <u>藤澤陽祐</u>, 菅原俊治
-                    </span>&nbsp;- SMASH 2024 Winter
+                        <u>藤澤陽祐</u>
+                    </span><br>
                 </li>
             </ul>
         </section>
@@ -182,7 +243,7 @@
         </section>
 
         <footer class="text-center text-gray-500 py-6">
-            © 2025 SunnyWist — Portfolio (このサイトはChatGPTを使用して作成されました)
+            © 2025 SunnyWist — Portfolio (このサイトの作成には生成AIを活用しています)
         </footer>
     </main>
 
